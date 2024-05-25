@@ -1,6 +1,6 @@
-import { FaPhone } from "react-icons/fa6";
+/*import { FaPhone } from "react-icons/fa6";
 import { IoPerson } from "react-icons/io5";
-import { AiOutlineUserDelete } from "react-icons/ai";
+import { AiOutlineUserDelete } from "react-icons/ai";*/
 import css from "./Contact.module.css";
 
 const Contact = ({ id, name, number, onDelete }) => {

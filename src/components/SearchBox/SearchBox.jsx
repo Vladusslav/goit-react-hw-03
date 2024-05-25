@@ -1,5 +1,5 @@
 import css from "./SearchBox.module.css";
-import { FcSearch } from "react-icons/fc";
+/*import { FcSearch } from "react-icons/fc";*/
 
 const SearchBox = ({ value, onFilter }) => {
   return (
