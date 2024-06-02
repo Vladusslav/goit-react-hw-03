@@ -1,25 +1,28 @@
-import { useEffect, useState } from "react";
-import ContactForm from "./components/ContactForm/ContactForm";
+import "./App.css";
+import { useState, useEffect } from "react";
+import InitialContactsList from "../data/initialContactList.json";
+
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
-import contactsObj from "./contactsObj.json";
+import ContactForm from "./components/ContactForm/ContactForm";
 
-function App() {
+export default function App() {
   const [contacts, setContacts] = useState(() => {
-    const savedContacts = window.localStorage.getItem("saved-contacts");
-    if (savedContacts !== null) {
-      return JSON.parse(savedContacts);
-    }
-    return contactsObj;
-  });
+    const dataContacts = window.localStorage.getItem("savedContacts");
 
-  useEffect(() => {
-    window.localStorage.setItem("saved-contacts", JSON.stringify(contacts));
-  }, [contacts]);
+    if (dataContacts !== null) {
+      return JSON.parse(dataContacts);
+    }
+    return InitialContactsList;
+  });
 
   const [filter, setFilter] = useState("");
 
-  const addContact = (newContact) => {
+  useEffect(() => {
+    window.localStorage.setItem("savedContacts", JSON.stringify(contacts));
+  }, [contacts]);
+
+  const addNewContact = (newContact) => {
     setContacts((prevContacts) => {
       return [...prevContacts, newContact];
     });
@@ -31,18 +34,16 @@ function App() {
     });
   };
 
-  const visibleContacts = contacts.filter((contact) =>
+  const filterContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
   return (
     <div>
-      <h1>Phonebook</h1>
-      <ContactForm onAdd={addContact} />
+      <h1 className="phonebook-list">Phonebook</h1>
+      <ContactForm onAdd={addNewContact} />
       <SearchBox value={filter} onFilter={setFilter} />
-      <ContactList contacts={visibleContacts} onDelete={deleteContact} />
+      <ContactList contacts={filterContacts} onDelete={deleteContact} />
     </div>
   );
 }
-
-export default App;

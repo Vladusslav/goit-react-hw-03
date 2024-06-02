@@ -1,0 +1,9 @@
+[
+  { "id": "id-1", "name": "Hermione Granger", "number": "459-12-56" },
+  { "id": "id-2", "name": "Ron Weasley", "number": "443-89-12" },
+  { "id": "id-3", "name": "Draco Malfoy", "number": "645-17-79" },
+  { "id": "id-4", "name": "Harry Potter", "number": "227-91-26" },
+  { "id": "id-5", "name": "Voldemort", "number": "212-73-50" },
+  { "id": "id-6", "name": "Rubeus Hagrid", "number": "372-54-94" },
+  { "id": "id-7", "name": "Severus Snape", "number": "290-12-78" }
+]
